@@ -22,12 +22,13 @@ FanOfTheMatch is web-first with no friction — scan a QR code and you're in. Ha
 
 ## Features
 
-- **Entry screen** — logo + event ID input gates access to a match, any ID resolves to a live demo match
+- **Dual-mode entry** — segmented RAGE / MANAGE picker on launch; single action button adapts to the selected mode
 - **Rage-O-Meter** — animated arc gauge driven exclusively by quick rage taps (independent from player stats)
 - **Quick Rage** — one-tap BOO, RED CARD, DIVE, and OFFSIDE buttons; red card counts 3× toward the meter
 - **Villain of the Match** — single-vote system with live percentage bars; Current Villain appears only once someone receives hate
 - **Player Rating** — per-player rage slider (1–10) with live anger emoji feedback and boo counter
 - **Decoupled mechanics** — Rage-O-Meter and player stats (boos, villain votes) are fully independent systems
+- **Event Manager** — admin view to create event codes, browse past events, and see per-event stats (rage taps, boos, villain votes, top villain)
 - **All values start at zero** — clean slate every session so interactions are visible in real time
 
 ---
@@ -54,10 +55,11 @@ HaterOfTheMatch/
 │   ├── HomeViewModel.swift
 │   └── MatchViewModel.swift # Voting, rating, rage logic (decoupled systems)
 └── Views/
-    ├── Entry/               # EntryView — logo + event ID gate
+    ├── Entry/               # EntryView — segmented RAGE/MANAGE picker
     ├── Home/                # HomeView, MatchCardView
     ├── Match/               # MatchView, RageOMeterView, RageTabView
     ├── Voting/              # VillainVoteView, PlayerRatingView
+    ├── Manage/              # ManageView, CreateEventSheet
     └── Components/          # RageButton, LivePulseDot, HaterColors
 ```
 

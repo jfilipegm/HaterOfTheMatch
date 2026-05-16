@@ -12,8 +12,10 @@
 		1A451CF7D5B1EC1EBF2870D4 /* VillainVoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B6AC242F0BDD594779B4A9 /* VillainVoteView.swift */; };
 		3D2F3AA298EF5294D6E91CFA /* MatchCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEFF67021B85712670769A87 /* MatchCardView.swift */; };
 		461FD26DD1E3FA96677DDF0B /* PlayerRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18FEFD4F5B34CF8CEB7D6F3 /* PlayerRatingView.swift */; };
+		57D2D9C5D9CBA31E9222C5D7 /* EventManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD26CDB33F779E4AF61E7633 /* EventManager.swift */; };
 		5C41DF4B9A2F31CD9CA70DB8 /* MatchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71C0C9E130800F53A348B22 /* MatchViewModel.swift */; };
 		5CB9EC9F60B89EBBE28190B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0C22B2B3E2D1BF88ADFCA57 /* Assets.xcassets */; };
+		5E0AC516965B175FE2B54A8F /* EventCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DCE12A150369F06DBDEB60 /* EventCode.swift */; };
 		641E13B81FBB5ADDF03A354A /* RageOMeterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF6395B2A9009784E4D7A0F /* RageOMeterView.swift */; };
 		6448F92926404494B63091E0 /* HaterColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9278DD51D1810C504BF11C /* HaterColors.swift */; };
 		670FA0F472017BCA08B9DA84 /* MatchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF3AA7915D16AA468A6231B /* MatchView.swift */; };
@@ -22,10 +24,12 @@
 		9B3A757641D4DF633C71F263 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E1CA165095C29606E1E836 /* HomeView.swift */; };
 		9C5DFD49C44F2B284CCE005C /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = F07788F160168E969183E915 /* Player.swift */; };
 		9ED0AAD447B55261E5323A49 /* LivePulseDot.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8C348BADF70F0114A2311E /* LivePulseDot.swift */; };
+		A22DD792A0D5482F2A54AED1 /* ManageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844D5532F171E1E975FB9CD8 /* ManageView.swift */; };
 		BFF4ACDC0D0967D2A2211BC3 /* RageTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6079215546ADDE2F977C3B8 /* RageTabView.swift */; };
 		D768F0385ECB393A6DFE7299 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 30B618ACF312275A61B79769 /* logo.png */; };
 		F9F071B2A5C2373D9AC0754F /* EntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8547088837F35623B3801F85 /* EntryView.swift */; };
 		FCFBF8EBF659CE9748C84B05 /* Match.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED62F582AFD00FEB4397FEA /* Match.swift */; };
+		FD37CDA838EE2F96D0AFD4F4 /* CreateEventSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = A429A349A9376680B3650640 /* CreateEventSheet.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,15 +39,19 @@
 		5CF6395B2A9009784E4D7A0F /* RageOMeterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RageOMeterView.swift; sourceTree = "<group>"; };
 		72B6AC242F0BDD594779B4A9 /* VillainVoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VillainVoteView.swift; sourceTree = "<group>"; };
 		7FBECEDC2928552CFC2843D8 /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
+		844D5532F171E1E975FB9CD8 /* ManageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageView.swift; sourceTree = "<group>"; };
 		8547088837F35623B3801F85 /* EntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryView.swift; sourceTree = "<group>"; };
 		8B12C7D7542FE532E7CEF9C5 /* HaterOfTheMatch.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = HaterOfTheMatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		98E1CA165095C29606E1E836 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		A429A349A9376680B3650640 /* CreateEventSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventSheet.swift; sourceTree = "<group>"; };
 		AEFF67021B85712670769A87 /* MatchCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchCardView.swift; sourceTree = "<group>"; };
 		B70228D02C7D04A9F3C01321 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		BD26CDB33F779E4AF61E7633 /* EventManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventManager.swift; sourceTree = "<group>"; };
 		BD9278DD51D1810C504BF11C /* HaterColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HaterColors.swift; sourceTree = "<group>"; };
 		C0C22B2B3E2D1BF88ADFCA57 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C6079215546ADDE2F977C3B8 /* RageTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RageTabView.swift; sourceTree = "<group>"; };
 		DB932F93ED45AF8C0F469745 /* RageButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RageButton.swift; sourceTree = "<group>"; };
+		E0DCE12A150369F06DBDEB60 /* EventCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCode.swift; sourceTree = "<group>"; };
 		E18FEFD4F5B34CF8CEB7D6F3 /* PlayerRatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerRatingView.swift; sourceTree = "<group>"; };
 		E71C0C9E130800F53A348B22 /* MatchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchViewModel.swift; sourceTree = "<group>"; };
 		F07788F160168E969183E915 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
@@ -74,6 +82,7 @@
 		4025FBB9527FA17A109B371E /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				E0DCE12A150369F06DBDEB60 /* EventCode.swift */,
 				3ED62F582AFD00FEB4397FEA /* Match.swift */,
 				7FBECEDC2928552CFC2843D8 /* MockData.swift */,
 				F07788F160168E969183E915 /* Player.swift */,
@@ -88,6 +97,15 @@
 				C0C22B2B3E2D1BF88ADFCA57 /* Assets.xcassets */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		5F83417DE08DCACBDDBC1F96 /* Manage */ = {
+			isa = PBXGroup;
+			children = (
+				A429A349A9376680B3650640 /* CreateEventSheet.swift */,
+				844D5532F171E1E975FB9CD8 /* ManageView.swift */,
+			);
+			path = Manage;
 			sourceTree = "<group>";
 		};
 		6013F68A9149AC4ED807FF5D /* Home */ = {
@@ -111,6 +129,7 @@
 		8BAB6D1AD5384DE268566B7C /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				BD26CDB33F779E4AF61E7633 /* EventManager.swift */,
 				F5177AE67D4C94453E6BBD4C /* HomeViewModel.swift */,
 				E71C0C9E130800F53A348B22 /* MatchViewModel.swift */,
 			);
@@ -133,6 +152,7 @@
 				1BB68F187A65BCAFE6B73CB1 /* Components */,
 				CB2074706E7933F38CE6AE9B /* Entry */,
 				6013F68A9149AC4ED807FF5D /* Home */,
+				5F83417DE08DCACBDDBC1F96 /* Manage */,
 				9D54F3C14AEF3AF8525EFDB7 /* Match */,
 				6F63AE730874314D8A62B06A /* Voting */,
 			);
@@ -244,12 +264,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD37CDA838EE2F96D0AFD4F4 /* CreateEventSheet.swift in Sources */,
 				F9F071B2A5C2373D9AC0754F /* EntryView.swift in Sources */,
+				5E0AC516965B175FE2B54A8F /* EventCode.swift in Sources */,
+				57D2D9C5D9CBA31E9222C5D7 /* EventManager.swift in Sources */,
 				6448F92926404494B63091E0 /* HaterColors.swift in Sources */,
 				7ED38D454DA56A8233BD1081 /* HaterOfTheMatchApp.swift in Sources */,
 				9B3A757641D4DF633C71F263 /* HomeView.swift in Sources */,
 				70EF7A695AD4CB1E7B43C50A /* HomeViewModel.swift in Sources */,
 				9ED0AAD447B55261E5323A49 /* LivePulseDot.swift in Sources */,
+				A22DD792A0D5482F2A54AED1 /* ManageView.swift in Sources */,
 				FCFBF8EBF659CE9748C84B05 /* Match.swift in Sources */,
 				3D2F3AA298EF5294D6E91CFA /* MatchCardView.swift in Sources */,
 				670FA0F472017BCA08B9DA84 /* MatchView.swift in Sources */,
