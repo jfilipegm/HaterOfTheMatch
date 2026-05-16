@@ -22,12 +22,13 @@ FanOfTheMatch is web-first with no friction — scan a QR code and you're in. Ha
 
 ## Features
 
-- **Rage-O-Meter** — animated arc gauge showing collective fan rage across all votes
-- **Villain of the Match** — single-vote system with live percentage bars per player
-- **Player Rating** — per-player rage slider (1–10) with anger emoji feedback
-- **Quick Rage** — one-tap BOO, RED CARD, DIVE, and OFFSIDE buttons
-- **Live match cards** — pulsing indicator, rage bar, and score on the home screen
-- **Pull to refresh** — simulated match data reload
+- **Entry screen** — logo + event ID input gates access to a match, any ID resolves to a live demo match
+- **Rage-O-Meter** — animated arc gauge driven exclusively by quick rage taps (independent from player stats)
+- **Quick Rage** — one-tap BOO, RED CARD, DIVE, and OFFSIDE buttons; red card counts 3× toward the meter
+- **Villain of the Match** — single-vote system with live percentage bars; Current Villain appears only once someone receives hate
+- **Player Rating** — per-player rage slider (1–10) with live anger emoji feedback and boo counter
+- **Decoupled mechanics** — Rage-O-Meter and player stats (boos, villain votes) are fully independent systems
+- **All values start at zero** — clean slate every session so interactions are visible in real time
 
 ---
 
@@ -48,11 +49,12 @@ HaterOfTheMatch/
 ├── Models/
 │   ├── Match.swift          # Match, Team, MatchStatus
 │   ├── Player.swift         # Player, Position
-│   └── MockData.swift       # Sample matches & players
+│   └── MockData.swift       # Sample matches & players (all values start at 0)
 ├── ViewModels/
 │   ├── HomeViewModel.swift
-│   └── MatchViewModel.swift # Voting, rating, rage logic
+│   └── MatchViewModel.swift # Voting, rating, rage logic (decoupled systems)
 └── Views/
+    ├── Entry/               # EntryView — logo + event ID gate
     ├── Home/                # HomeView, MatchCardView
     ├── Match/               # MatchView, RageOMeterView, RageTabView
     ├── Voting/              # VillainVoteView, PlayerRatingView

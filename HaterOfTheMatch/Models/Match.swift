@@ -40,9 +40,4 @@ struct Match: Identifiable {
     let players: [Player]
 
     var isLive: Bool { status.isLive }
-
-    var rageLevel: Double {
-        let totalRage = players.reduce(0) { $0 + $1.boos + $1.redCardDemands * 3 + $1.villainVotes * 5 }
-        return min(Double(totalRage) / 500.0, 1.0)
-    }
 }

@@ -4,7 +4,7 @@ import SwiftUI
 struct HaterOfTheMatchApp: App {
     var body: some Scene {
         WindowGroup {
-            HomeView()
+            EntryView()
                 .preferredColorScheme(.dark)
         }
     }

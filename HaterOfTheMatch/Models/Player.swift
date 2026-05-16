@@ -28,5 +28,5 @@ struct Player: Identifiable, Hashable {
         }
     }
 
-    var totalHate: Int { boos + redCardDemands * 3 + villainVotes * 5 }
+    var totalHate: Int { boos + redCardDemands + villainVotes }
 }

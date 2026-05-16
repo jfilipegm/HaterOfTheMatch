@@ -24,8 +24,8 @@ struct RageTabView: View {
                 }
                 .padding(.horizontal, 16)
 
-                // Top hated player teaser
-                if let top = vm.sortedByHate.first {
+                // Top hated player teaser — only once someone has received hate
+                if let top = vm.sortedByHate.first, top.totalHate > 0 {
                     VStack(spacing: 6) {
                         Text("CURRENT VILLAIN")
                             .font(.system(size: 10, weight: .black))

@@ -70,45 +70,12 @@ struct MatchCardView: View {
             .padding(.vertical, 12)
             .padding(.horizontal, 16)
 
-            // Rage bar (only for live / finished)
-            if !match.players.isEmpty {
-                Divider().background(Color.white.opacity(0.06))
-                HStack(spacing: 8) {
-                    Text("🔥 RAGE")
-                        .font(.system(size: 10, weight: .black))
-                        .foregroundStyle(Color.haterOrange)
-                    GeometryReader { geo in
-                        ZStack(alignment: .leading) {
-                            RoundedRectangle(cornerRadius: 3)
-                                .fill(Color.white.opacity(0.08))
-                            RoundedRectangle(cornerRadius: 3)
-                                .fill(rageGradient)
-                                .frame(width: geo.size.width * match.rageLevel)
-                        }
-                    }
-                    .frame(height: 6)
-                    Text("\(Int(match.rageLevel * 100))%")
-                        .font(.system(size: 10, weight: .bold))
-                        .foregroundStyle(Color.haterRed)
-                        .frame(width: 32, alignment: .trailing)
-                }
-                .padding(.horizontal, 16)
-                .padding(.vertical, 10)
-            }
         }
         .background(Color.haterCard)
         .clipShape(RoundedRectangle(cornerRadius: 16))
         .overlay(
             RoundedRectangle(cornerRadius: 16)
                 .stroke(match.isLive ? Color.haterRed.opacity(0.4) : Color.white.opacity(0.06), lineWidth: 1)
-        )
-    }
-
-    private var rageGradient: LinearGradient {
-        LinearGradient(
-            colors: [Color.haterYellow, Color.haterOrange, Color.haterRed],
-            startPoint: .leading,
-            endPoint: .trailing
         )
     }
 }

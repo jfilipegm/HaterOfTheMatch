@@ -9,10 +9,13 @@ enum MatchTab {
 @Observable
 final class MatchViewModel {
     private(set) var match: Match
-    private(set) var selectedTab: MatchTab = .rage
+    private(set) var selectedTab: MatchTab = .rate
     private(set) var villainVote: Player.ID? = nil
     private(set) var ragePulse = false
-    var rageLevel: Double { match.rageLevel }
+    private(set) var globalRageTaps: Int = 0
+
+    // Rage-O-Meter driven solely by quick rage taps (caps at 200 taps = 100%)
+    var rageLevel: Double { min(Double(globalRageTaps) / 200.0, 1.0) }
 
     var homePlayers: [Player] { match.players.filter { $0.teamId == match.homeTeam.id } }
     var awayPlayers: [Player] { match.players.filter { $0.teamId == match.awayTeam.id } }
@@ -55,19 +58,14 @@ final class MatchViewModel {
     }
 
     func quickRage(type: QuickRageType) {
-        var topVictim = sortedByHate.first
+        // Only drives the Rage-O-Meter — does not affect player stats or villain ranking
+        let increment: Int
         switch type {
-        case .boo:
-            if let p = topVictim { boo(player: p) }
-        case .redCard:
-            if let p = topVictim { demandRedCard(for: p) }
-        case .dive:
-            topVictim = match.players.randomElement()
-            if let p = topVictim { boo(player: p) }
-        case .offside:
-            topVictim = match.players.randomElement()
-            if let p = topVictim { boo(player: p) }
+        case .redCard: increment = 3   // red card hits harder
+        default:       increment = 1
         }
+        globalRageTaps += increment
+        pulse()
     }
 
     private func update(player: Player, mutation: (inout Player) -> Void) {

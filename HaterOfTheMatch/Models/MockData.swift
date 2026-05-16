@@ -67,10 +67,10 @@ enum MockData {
                 number: number,
                 position: pos,
                 teamId: team.id,
-                boos: Int.random(in: 0...80),
-                redCardDemands: Int.random(in: 0...20),
-                villainVotes: Int.random(in: 0...40),
-                rageRating: Double.random(in: 1.0...9.0)
+                boos: 0,
+                redCardDemands: 0,
+                villainVotes: 0,
+                rageRating: 1.0
             ))
             number += 1
         }

@@ -27,6 +27,7 @@ struct PlayerRatingCard: View {
     let onBoo: () -> Void
 
     @State private var rating: Double
+    @State private var booCount: Int
     @State private var booTapped = false
 
     init(player: Player, onRate: @escaping (Double) -> Void, onBoo: @escaping () -> Void) {
@@ -34,58 +35,63 @@ struct PlayerRatingCard: View {
         self.onRate = onRate
         self.onBoo = onBoo
         self._rating = State(initialValue: player.rageRating)
+        self._booCount = State(initialValue: player.boos)
     }
 
     var body: some View {
-        VStack(spacing: 8) {
-            // Number badge + position
+        VStack(spacing: 10) {
+            // Position + number row
             HStack {
                 Text(player.position.rawValue)
                     .font(.system(size: 9, weight: .bold))
                     .foregroundStyle(Color.gray)
-                    .padding(.horizontal, 5)
-                    .padding(.vertical, 2)
-                    .background(Color.haterSurface)
-                    .clipShape(Capsule())
                 Spacer()
                 Text("#\(player.number)")
-                    .font(.system(size: 12, weight: .black))
+                    .font(.system(size: 11, weight: .black))
                     .foregroundStyle(Color.gray)
             }
 
-            // Emoji + name
-            Text(player.rageEmoji)
-                .font(.system(size: 36))
+            // Emoji
+            Text(rageEmoji)
+                .font(.system(size: 44))
+                .animation(.spring(duration: 0.3), value: rageEmoji)
+
+            // Name
             Text(player.name)
-                .font(.system(size: 12, weight: .bold))
+                .font(.system(size: 13, weight: .bold))
                 .foregroundStyle(Color.white)
                 .lineLimit(1)
                 .minimumScaleFactor(0.7)
 
-            // Rage rating slider
-            VStack(spacing: 4) {
-                Text(String(format: "%.1f", rating))
-                    .font(.system(size: 18, weight: .black, design: .rounded))
-                    .foregroundStyle(ratingColor)
-                Slider(value: $rating, in: 1...10, step: 0.5)
-                    .tint(ratingColor)
-                    .onChange(of: rating) { _, new in onRate(new) }
-            }
+            // Rating number
+            Text(String(format: "%.1f", rating))
+                .font(.system(size: 20, weight: .black, design: .rounded))
+                .foregroundStyle(ratingColor)
+                .animation(.easeInOut(duration: 0.15), value: ratingColor)
+
+            // Slider
+            Slider(value: $rating, in: 1...10, step: 0.5)
+                .tint(ratingColor)
+                .onChange(of: rating) { _, new in onRate(new) }
 
             // Boo button
             Button {
                 booTapped = true
+                booCount += 1
                 onBoo()
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) { booTapped = false }
             } label: {
-                HStack(spacing: 4) {
+                HStack(spacing: 5) {
                     Text("👎")
-                    Text("\(player.boos)")
-                        .font(.system(size: 12, weight: .bold))
+                        .font(.system(size: 14))
+                    Text("\(booCount)")
+                        .font(.system(size: 13, weight: .bold))
+                        .foregroundStyle(Color.white)
+                        .contentTransition(.numericText())
                 }
                 .frame(maxWidth: .infinity)
-                .padding(.vertical, 6)
-                .background(booTapped ? Color.haterRed.opacity(0.3) : Color.haterSurface)
+                .padding(.vertical, 8)
+                .background(booTapped ? Color.haterRed.opacity(0.25) : Color.haterSurface)
                 .clipShape(RoundedRectangle(cornerRadius: 8))
             }
             .buttonStyle(.plain)
@@ -95,11 +101,20 @@ struct PlayerRatingCard: View {
         .padding(12)
         .background(Color.haterCard)
         .clipShape(RoundedRectangle(cornerRadius: 14))
-        .overlay(
-            RoundedRectangle(cornerRadius: 14)
-                .stroke(ratingColor.opacity(0.3), lineWidth: 1)
-        )
     }
+
+    private var ratingEmoji: String {
+        switch rating {
+        case 0..<3: return "😤"
+        case 3..<5: return "😠"
+        case 5..<7: return "🤬"
+        case 7..<9: return "💀"
+        default:    return "☠️"
+        }
+    }
+
+    // Keep emoji in sync with local slider state (not player.rageEmoji which lags)
+    private var rageEmoji: String { ratingEmoji }
 
     private var ratingColor: Color {
         if rating < 4 { return Color.haterYellow }
